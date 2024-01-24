@@ -2,7 +2,7 @@ package strings;
 
 public class Vowels {
     public static void main(String[] args){
-        String name1 = "Swaroopa";
+        String name1 = "Sowmya";
         int count = countVowels(name1);
         System.out.println("Number of Vowels in string are "+count);
     }
