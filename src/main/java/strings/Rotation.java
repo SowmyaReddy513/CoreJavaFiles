@@ -1,37 +1,32 @@
 package strings;
 
-import java.util.Scanner;
-
 public class Rotation {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-
-        System.out.println("Enter the first string:");
-        String str1 = scanner.nextLine();
-
-        System.out.println("Enter the second string:");
-        String str2 = scanner.nextLine();
-
-        boolean isRotation = isRotation(str1, str2);
-        if (isRotation) {
-            System.out.println("The second string is a rotation of the first string.");
-        } else {
-            System.out.println("The second string is not a rotation of the first string.");
+        String str1 = "JavaJ2eeStrutsHibernate";
+        String str2 = "StrutsHibernateJavaJ2ee";
+        if (str1.length() != str2.length() || str1.isEmpty() || str2.isEmpty()) {
+            System.out.println("False");
         }
-
-        scanner.close();
+        // Concatenate the first string with itself
+        String concatenatedStr = str1 + str1;
+        System.out.println(concatenatedStr.contains(str2));
     }
 
-
-    private static boolean isRotation(String str1, String str2) {
-
-        if (str1.length() != str2.length() || str1.length() == 0) {
+    public static boolean areRotatedStrings(String str1, String str2) {
+        // Check if either string is null or empty
+        if (str1 == null || str2 == null || str1.isEmpty() || str2.isEmpty()) {
             return false;
         }
 
-        String concatenated = str1 + str1;
+        // Check if the lengths are different
+        if (str1.length() != str2.length()) {
+            return false;
+        }
 
-        return concatenated.contains(str2);
+        // Concatenate the first string with itself
+        String concatenatedStr = str1 + str1;
+
+        // Check if the second string is a substring of the concatenated string
+        return concatenatedStr.contains(str2);
     }
 }
