@@ -1,17 +1,38 @@
 package programs;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class PalindromeTest {
+
     @Test
     public void testIsPalindrome() {
+        Palindrome palindromeChecker = new Palindrome();
 
-        assertTrue(Palindrome.isPalindrome(121));
-        assertTrue(Palindrome.isPalindrome(1221));
-        assertTrue(Palindrome.isPalindrome(12321));
-        assertFalse(Palindrome.isPalindrome(12345));
-        assertTrue(Palindrome.isPalindrome(1));
-        assertFalse(Palindrome.isPalindrome(123456));
+        // Test with palindrome numbers
+        assertTrue(palindromeChecker.isPalindrome(121));
+        assertTrue(palindromeChecker.isPalindrome(1221));
+        assertTrue(palindromeChecker.isPalindrome(12321));
+        assertTrue(palindromeChecker.isPalindrome(123321));
+        assertTrue(palindromeChecker.isPalindrome(1234321));
+
+        // Test with non-palindrome numbers
+        assertFalse(palindromeChecker.isPalindrome(123));
+        assertFalse(palindromeChecker.isPalindrome(1234));
+        assertFalse(palindromeChecker.isPalindrome(12345));
+        assertFalse(palindromeChecker.isPalindrome(123456));
+
+        // Test with single-digit number
+        assertTrue(palindromeChecker.isPalindrome(0));
+        assertTrue(palindromeChecker.isPalindrome(1));
+        assertTrue(palindromeChecker.isPalindrome(2));
+
+        // Test with negative numbers
+        assertFalse(palindromeChecker.isPalindrome(-121));
+        assertFalse(palindromeChecker.isPalindrome(-1221));
+        assertFalse(palindromeChecker.isPalindrome(-12321));
+        assertFalse(palindromeChecker.isPalindrome(-123321));
+        assertFalse(palindromeChecker.isPalindrome(-1234321));
     }
 }

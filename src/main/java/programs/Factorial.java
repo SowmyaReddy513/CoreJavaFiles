@@ -1,21 +1,13 @@
 package programs;
 
 public class Factorial {
-        public static int calculateFactorial(int n) {
-            if (n < 0) {
-                throw new IllegalArgumentException("Factorial is not defined for negative numbers.");
-            }
-            if (n == 0 || n == 1) {
-                return 1;
-            }
-            int factorial = 1;
-            for (int i = 2; i <= n; i++) {
-                factorial *= i;
-            }
-            return factorial;
+
+    public int calculateFactorial(int n) {
+        // Base case: Factorial of 0 is 1
+        if (n == 0) {
+            return 1;
         }
-        public static void main(String[] args) {
-            int number = 5;
-            System.out.println("Factorial of " + number + " is: " + calculateFactorial(number));
-        }
+        // Recursive case: Factorial of n is n multiplied by factorial of (n-1)
+        return n * calculateFactorial(n - 1);
+    }
 }

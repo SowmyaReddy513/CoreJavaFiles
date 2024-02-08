@@ -1,23 +1,24 @@
 package programs;
 //A palindrome is a word, sentence, verse, or even number that reads the same backward or forward.
-public class Palindrome {
-    public static boolean isPalindrome(int number) {
-        int originalNumber = number;
-        int reversedNumber = 0;
-        while (number > 0) {
-            int digit = number % 10;
-            reversedNumber = reversedNumber * 10 + digit;
-            number /= 10;
-        }
-        return originalNumber == reversedNumber;
-    }
-    public static void main(String[] args) {
-        int testNumber = 121;
 
-        if (isPalindrome(testNumber)) {
-            System.out.println(testNumber + " is a palindrome.");
-        } else {
-            System.out.println(testNumber + " is not a palindrome.");
+public class Palindrome {
+
+    public boolean isPalindrome(int num) {
+        // Convert the number to a string
+        String str = String.valueOf(num);
+        // Initialize pointers for the start and end of the string
+        int i = 0, j = str.length() - 1;
+        // Iterate until the pointers meet
+        while (i < j) {
+            // Compare characters at the current pointers
+            if (str.charAt(i) != str.charAt(j)) {
+                return false; // Not a palindrome
+            }
+            // Move the pointers towards the center
+            i++;
+            j--;
         }
+        // If all characters match, it's a palindrome
+        return true;
     }
 }
